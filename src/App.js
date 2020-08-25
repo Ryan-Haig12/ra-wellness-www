@@ -3,7 +3,19 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 
+
 function App() {
+
+  componentDidMount() {
+    axios.get('https://ra-wellness-node.herokuapp.com/api/v1/test')
+    .then(response => {
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -19,16 +31,6 @@ function App() {
         >
           Learn React
         </a>
-
-        componentDidMount() {
-          axios.get('https://ra-wellness-node.herokuapp.com/api/v1/test')
-          .then(response => {
-            console.log(response.data);
-          })
-          .catch(error => {
-            console.log(error);
-          });
-        }
       </header>
     </div>
   );
