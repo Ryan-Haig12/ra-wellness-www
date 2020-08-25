@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 function App() {
   return (
@@ -18,6 +19,16 @@ function App() {
         >
           Learn React
         </a>
+
+        componentDidMount() {
+          axios.get('https://ra-wellness-node.herokuapp.com/api/v1/test')
+          .then(response => {
+            console.log(response.data);
+          })
+          .catch(error => {
+            console.log(error);
+          });
+        }
       </header>
     </div>
   );
